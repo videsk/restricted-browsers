@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <script src="../dist/restricted-browsers.min.js"></script>
+        <script>
+            const browser = new RestrictedBrowsers({
+              compatibility: {
+                chrome: { ios: '*' }
+              },
+              restricted: true,
+              debug: true
+            });
+            console.log(await browser.check());
+        </script>
+    </body>
+</html>
