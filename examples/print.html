@@ -2,8 +2,9 @@
     <body>
         <script src="../dist/restricted-browsers.min.js"></script>
         <script>
+            let browser;
             async function TestMobile() {
-                const browser = new RestrictedBrowsers({
+                browser = new RestrictedBrowsers({
                   compatibility: {
                     chrome: { ios: '*' }
                   },
@@ -11,7 +12,7 @@
                   debug: true
                 });
                 const result = await browser.check();
-                alert(JSON.stringify(browser.browser));
+                alert(JSON.stringify(browser.Browser));
                 alert(result);
             }
 
