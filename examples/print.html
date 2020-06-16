@@ -2,16 +2,20 @@
     <body>
         <script src="../dist/restricted-browsers.min.js"></script>
         <script>
-            const browser = new RestrictedBrowsers({
-              compatibility: {
-                chrome: { ios: '*' }
-              },
-              restricted: true,
-              debug: true
-            });
-            const result = await browser.check();
-            alert(browser.browser);
-            alert(result);
+            async function TestMobile() {
+                const browser = new RestrictedBrowsers({
+                  compatibility: {
+                    chrome: { ios: '*' }
+                  },
+                  restricted: true,
+                  debug: true
+                });
+                const result = await browser.check();
+                alert(browser.browser);
+                alert(result);
+            }
+
+            TestMobile();
         </script>
     </body>
 </html>
