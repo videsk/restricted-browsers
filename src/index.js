@@ -17,13 +17,14 @@ class RestrictedBrowsers {
     constructor({ compatibility = {}, restrict = true, debug = false }) {
         this.compatibility = compatibility;
         this.restrict = restrict;
-        this.ua = UAParser();
+        this.ua = new UAParser();
         this.browser = { name: '', version: '', os: '' };
         this.debug = debug;
-        this.__init();
     }
 
     async check() {
+      // Get info of browser
+      this.__init();
       // Compare
       return await this.__compare(this.compatibility, this.browser.name);
     }
@@ -32,7 +33,8 @@ class RestrictedBrowsers {
       // Check the restriction object is valid
       if (!this.compatibility || Object.keys(this.compatibility).length < 1) throw new Error('It\'s not possible check compatibility with a empty object.');
       // Get the browser and os
-      const { browser, os } = this.ua;
+      const browser = this.ua.getBrowser();
+      const os = this.ua.getOS();
       // Get browser name parsing first
       this.browser.name = this.constructor.getName(this.compatibility, browser.name);
       // Get OS name parsing first
