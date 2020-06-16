@@ -1,5 +1,9 @@
 <html>
     <body>
-        <script src="../dist/restricted-browsers.min.js"></script>
+        <script>
+            const el = document.createElement('script');
+            el.src = `../dist/restricted-browsers.min.js?version=${new Date().getTime()}`;
+            document.body.appendChild(el);
+        </script>
     </body>
 </html>
