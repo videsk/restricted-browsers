@@ -9,7 +9,9 @@
               restricted: true,
               debug: true
             });
-            console.log(await browser.check());
+            const result = await browser.check();
+            alert(browser.browser);
+            alert(result);
         </script>
     </body>
 </html>
