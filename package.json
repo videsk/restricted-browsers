@@ -1,11 +1,15 @@
 {
   "name": "@videsk/restricted-browsers",
+  "type": "module",
   "version": "1.0.0",
   "description": "A simple and fast class to detect and check if browser is restricted based on User-Agent.",
-  "main": "src/index.js",
+  "umdName": "RestrictedBrowsers",
+  "browser": "dist/restricted-browsers.min.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   },
   "repository": {
     "type": "git",
@@ -24,19 +28,24 @@
   },
   "homepage": "https://github.com/videsk/restricted-browsers#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.8.7",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-import": "^2.17.3",
-    "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.4"
+    "@rollup/plugin-commonjs": "^19.0.2",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "chai": "^6.2.0",
+    "mocha": "^11.7.4",
+    "rollup": "^2.55.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-string": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sinon": "^21.0.0"
   },
   "dependencies": {
-    "semver": "^7.3.2",
-    "ua-parser-js": "^0.7.21"
+    "semver": "^7.7.2",
+    "ua-parser-js": "^2.0.5"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
